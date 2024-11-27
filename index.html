@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educação Interativa - Portal de Estudos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        .menu {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Animação de slide-in */
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .section {
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease-out;
+        }
+
+        /* Barra de pesquisa */
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #4CAF50;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: #45a049;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .test-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .test-box {
+            background-color: #fff;
+            padding: 20px;
+            width: 45%;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .test-box:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .test-box h3 {
+            color: #4CAF50;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Educação Interativa - Portal de Estudos</h1>
+</header>
+
+<!-- Menu de Navegação -->
+<div class="menu">
+    <a href="#materias">Matérias</a>
+    <a href="#provas">Provas</a>
+    <a href="#pesquisa">Pesquisar</a>
+    <a href="#inteligencia">IA Educacional</a>
+</div>
+
+<!-- Barra de Pesquisa -->
+<div id="pesquisa">
+    <input type="text" class="search-bar" placeholder="Pesquise por tema ou matéria..." id="searchInput">
+</div>
+
+<!-- Divisão de Matérias -->
+<div id="materias">
+    <div class="section">
+        <h2>Matérias do 1º ao 8º Ano</h2>
+        <ul>
+            <li>Matemática - Regra de Três, Porcentagens, Geometria</li>
+            <li>Português - Sintaxe, Morfologia, Redação</li>
+            <li>Geografia - Localização, Climas, Cartografia</li>
+            <li>História - Brasil, Idade Moderna, Revoluções</li>
+            <li>Ciências - Corpo Humano, Ecossistemas, Química Básica</li>
+            <!-- Adicione mais matérias conforme necessário -->
+        </ul>
+    </div>
+</div>
+
+<!-- Testes Interativos -->
+<div id="provas" class="test-container">
+    <div class="test-box">
+        <h3>Teste de Matemática</h3>
+        <p>Teste suas habilidades em Regra de Três e Porcentagens!</p>
+        <a href="teste-matematica.html" class="button">Iniciar Teste</a>
+    </div>
+    <div class="test-box">
+        <h3>Teste de Português</h3>
+        <p>Desafie-se com questões sobre sintaxe e gramática.</p>
+        <a href="teste-portugues.html" class="button">Iniciar Teste</a>
+    </div>
+</div>
+
+<!-- Inteligência Artificial Educacional -->
+<div id="inteligencia">
+    <div class="section">
+        <h2>Inteligência Artificial</h2>
+        <p>Esta IA pode ajudá-lo a entender melhor as matérias com explicações instantâneas. Você pode interagir com ela para tirar dúvidas sobre qualquer conteúdo do site.</p>
+        <button onclick="startAI()">Começar com a IA</button>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Portal de Estudos - Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    function startAI() {
+        alert("Você agora está interagindo com a Inteligência Artificial! Pergunte sobre qualquer matéria.");
+    }
+
+    // Funcionalidade de Pesquisa
+    document.getElementById('searchInput').addEventListener('input', function() {
+        var searchValue = this.value.toLowerCase();
+        var materias = document.querySelectorAll('#materias li');
+        materias.forEach(function(materia) {
+            if (materia.textContent.toLowerCase().includes(searchValue)) {
+                materia.style.display = '';
+            } else {
+                materia.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
